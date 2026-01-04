@@ -2,7 +2,7 @@
 class Database
 {
 private $host = 'localhost';
-private $dbname = 'assadv2';
+private $dbname = 'mabagnole';
 private $username = 'root';
 private $password = '';
 private $pdo;
@@ -17,7 +17,7 @@ public function __construct(){
     }catch(PDOException $e){
         die("Erreur connexion : ".$e->getMessage());
     }
-};
+}
 
 public function getPdo(){
     return $this->pdo;
