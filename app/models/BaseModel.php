@@ -1,8 +1,11 @@
 <?php 
+namespace App\Models;
+use PDO;
+
 abstract class BaseModel {
 protected $pdo;
 
-protected function __ construct(PDO $pdo) {
+protected function __construct(PDO $pdo) {
 $this->pdo = $pdo;
 }
 abstract public function save( ): bool;
