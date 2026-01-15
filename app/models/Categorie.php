@@ -1,35 +1,28 @@
 <?php
-class Categorie {
-    private $id;
-    private $nom;
-    private $description;
+class Categorie extends BaseModel {
+private int $id;
+private string $nom;
+private array $vehicules = [];
 
-    public function __construct($id, $nom, $description) {
-        $this->id = $id;
-        $this->nom = $nom;
-        $this->description = $description;
-    }
+public function _construct(PDO $pdo, int $id = 0, string $nom = '' ) {
+parent ::_ construct($pdo);
+$this->id = $id;
+$this->nom = $nom;
+}
+// GETTERS (Encapsulation)
+public function getId( ): int { return $this->id; }
+public function getNom( ): string { return $this->nom; }
+public function getVehicules(): array { return $this->vehicules; }
 
-    // Getters
-    public function getId() {
-        return $this->id;
-    }
+// À CODER : loadVehicules( ), save( )
+public function loadVehicules(): void { /* TODO */ }
 
-    public function getNom() {
-        return $this->nom;
-    }
-
-    public function getDescription() {
-        return $this->description;
-    }
-
-    // Setters
-    public function setNom($nom) {
-        $this->nom = $nom;
-    }
-
-    public function setDescription($description) {
-        $this->description = $description;
-    }
+public function save( ): bool {
+// TODO : INSERT/UPDATE SQL
+return true;
+}
+public static function find(int $id) {
+// TODO : SELECT by ID
+}
 }
 ?>
