@@ -1,27 +1,17 @@
 <?php
-class Database
-{
-private $host = 'localhost';
-private $dbname = 'mabagnole';
-private $username = 'root';
-private $password = '';
-private $pdo;
+class Database {
+    private static ?PDO $instance = null;
 
-public function __construct(){
-    try{
-        $this->pdo = new PDO(
-           "mysql:host={$this->host};dbname={$this->dbname}",
-            $this->username,
-            $this->password
-        );
-    }catch(PDOException $e){
-        die("Erreur connexion : ".$e->getMessage());
+    private function __construct() {}
+
+    public static function getInstance(): PDO {
+        if (self::$instance === null) {
+            $dsn = "mysql:host=localhost;dbname=mabagnole";
+            self::$instance = new PDO($dsn, 'root', '', [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+            ]);
+        }
+        return self::$instance;
     }
-}
-
-public function getPdo(){
-    return $this->pdo;
-}
-
 }
 ?>

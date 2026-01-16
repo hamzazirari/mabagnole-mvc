@@ -20,7 +20,12 @@ public function getVehicules(): array { return $this->vehicules; }
 
 // À CODER : loadVehicules( ), save( )
 public function loadVehicules(): void { 
-    $sql = 'SELECT * FROM vehicules WHERE categorie_id = :id';
+
+$sql = 'SELECT v.*, c.nom as categorie_nom 
+        FROM vehicules v 
+        INNER JOIN categories c ON v.categorie_id = c.id_categorie 
+        WHERE v.categorie_id = :id';
+        
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute(['id' => $this->id]);
 
