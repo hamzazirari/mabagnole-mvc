@@ -15,9 +15,9 @@
                             (<?= $vehicule->getImmatriculation() ?>) 
                             - <?= $vehicule->getPrixJour() ?>€/jour
                             <?php if ($vehicule->getDisponible()): ?>
-                                ✅ Disponible
+                                 Disponible
                             <?php else: ?>
-                                ❌ Non disponible
+                                 Non disponible
                             <?php endif; ?>
                         </a>
                     </li>
