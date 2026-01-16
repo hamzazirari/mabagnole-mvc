@@ -10,9 +10,9 @@
     
     <p><strong>Statut :</strong> 
         <?php if ($vehicule->getDisponible()): ?>
-            <span style="color: green;">✅ Disponible</span>
+            <span style="color: green;"> Disponible</span>
         <?php else: ?>
-            <span style="color: red;">❌ Non disponible</span>
+            <span style="color: red;"> Non disponible</span>
         <?php endif; ?>
     </p>
     
